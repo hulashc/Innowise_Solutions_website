@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import ServicesScrollytelling from "@/components/ServicesScrollytelling";
+import CtaBackground from "@/components/CtaBackground";
 export default function ServicesPage() {
   return (
     <div className="min-h-screen">
@@ -15,7 +16,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-xs text-black/55 uppercase tracking-[0.2em] mb-6"
+            className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-6"
           >
             What We Do
           </motion.p>
@@ -23,7 +24,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-            className="text-[1.5rem] sm:text-5xl lg:text-7xl font-bold text-black max-w-3xl leading-[0.9] sm:leading-[0.85] mb-4 md:mb-6"
+            className="text-[1.5rem] sm:text-5xl lg:text-7xl font-bold text-black dark:text-white max-w-3xl leading-[0.9] sm:leading-[0.85] mb-4 md:mb-6"
           >
             Systems that scale with you.
           </motion.h1>
@@ -31,7 +32,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-            className="text-sm md:text-base text-black/65 max-w-xl mb-8 md:mb-10 leading-relaxed"
+            className="text-sm md:text-base text-black/65 dark:text-white/65 max-w-xl mb-8 md:mb-10 leading-relaxed"
           >
             From AI-powered cloud infrastructure to intelligent security and smart ERP &mdash; we design, build, and manage the technology that powers your growth.
           </motion.p>
@@ -64,11 +65,11 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <p className="text-xs text-black/55 uppercase tracking-[0.2em] mb-4">All Services</p>
-            <h2 className="text-3xl sm:text-5xl font-bold text-black max-w-2xl mb-6 leading-tight">
+            <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-4">All Services</p>
+            <h2 className="text-3xl sm:text-5xl font-bold text-black dark:text-white max-w-2xl mb-6 leading-tight">
               Everything your stack needs to perform.
             </h2>
-            <p className="text-black/65 text-sm leading-relaxed max-w-2xl">
+            <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed max-w-2xl">
               We go deep on your infrastructure, data, and interfaces &mdash; identifying exactly where performance breaks down and building the systems that hold under real pressure.
             </p>
           </motion.div>
@@ -78,14 +79,14 @@ export default function ServicesPage() {
       </section>
 
       {/* OUR APPROACH */}
-      <section className="py-16 md:py-24 px-6 border-t border-gray-200">
+      <section className="py-16 md:py-24 px-6 border-t border-gray-200 dark:border-border">
         <div className="max-w-[1200px] mx-auto">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="text-xs text-black/55 uppercase tracking-[0.2em] mb-4"
+            className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-4"
           >
             Our Approach
           </motion.p>
@@ -94,7 +95,7 @@ export default function ServicesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-5xl font-bold text-black max-w-3xl mb-12 md:mb-16 leading-tight"
+            className="text-3xl sm:text-5xl font-bold text-black dark:text-white max-w-3xl mb-12 md:mb-16 leading-tight"
           >
             Precision at every layer, from architecture to output.
           </motion.h2>
@@ -106,7 +107,7 @@ export default function ServicesPage() {
                 desc: "Every solution is built from scratch for your specific needs. We don't retrofit templates or apply one-size-fits-all approaches.",
                 badge: "System audit complete",
                 icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55 dark:text-white/55">
                     <path d="M12 2L2 7l10 5 10-5-10-5z" />
                     <path d="M2 17l10 5 10-5" />
                     <path d="M2 12l10 5 10-5" />
@@ -118,7 +119,7 @@ export default function ServicesPage() {
                 desc: "We prioritise long-term maintainability, security, and performance over short-term speed. Built to last from day one.",
                 badge: "99.9% uptime guarantee",
                 icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55 dark:text-white/55">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
                 ),
@@ -128,7 +129,7 @@ export default function ServicesPage() {
                 desc: "Weekly reviews, live staging environments, open documentation, and direct access to your engineering team.",
                 badge: "Always transparent",
                 icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55 dark:text-white/55">
                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                     <circle cx="12" cy="12" r="3" />
                   </svg>
@@ -144,11 +145,11 @@ export default function ServicesPage() {
                 className="flex flex-col gap-4"
               >
                 <div className="mb-1">{item.icon}</div>
-                <h3 className="text-black font-medium text-base">{item.title}</h3>
-                <p className="text-black/65 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-black dark:text-white font-medium text-base">{item.title}</h3>
+                <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">{item.desc}</p>
                 <div className="inline-flex items-center gap-2 mt-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                  <span className="text-black/45 text-xs">{item.badge}</span>
+                  <span className="text-black/45 dark:text-white/45 text-xs">{item.badge}</span>
                 </div>
               </motion.div>
             ))}
@@ -161,16 +162,8 @@ export default function ServicesPage() {
       <section id="cta-services" className="py-16 md:py-24 px-6">
         <div className="max-w-[1200px] mx-auto">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden">
-            <div className="absolute inset-0">
-              <Image
-                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=80"
-                alt=""
-                fill
-                sizes="100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="absolute inset-0 bg-black/60" />
+            <CtaBackground />
+            <div className="absolute inset-0 bg-black/40" />
 
             <div className="relative z-10 text-center py-12 md:py-20 px-6">
               <motion.h2
@@ -179,6 +172,7 @@ export default function ServicesPage() {
                 transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                 viewport={{ once: true }}
                 className="text-3xl md:text-5xl font-bold text-white mb-4"
+                style={{ textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}
               >
                 Ready to get started?
               </motion.h2>
@@ -188,6 +182,7 @@ export default function ServicesPage() {
                 transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
                 viewport={{ once: true }}
                 className="text-white/70 text-sm max-w-lg mx-auto mb-8 leading-relaxed"
+                style={{ textShadow: "0 1px 16px rgba(0,0,0,0.4)" }}
               >
                 Tell us about your challenge and one of our specialists will be in touch within one business day.
               </motion.p>
@@ -201,7 +196,7 @@ export default function ServicesPage() {
                   href="/contact"
                   className="inline-block bg-brand text-white rounded-full px-8 py-3 font-semibold hover:bg-brand-dark transition-all duration-200"
                 >
-                  Talk to an Expert
+                  Book a Consultation
                 </Link>
               </motion.div>
             </div>
@@ -305,7 +300,7 @@ function AllServicesTabs() {
             className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
               i === active
                 ? "bg-brand text-white shadow-md shadow-brand/30"
-                : "bg-gray-100 text-black/65 hover:bg-gray-200 hover:text-black/70"
+                : "bg-gray-100 dark:bg-surface text-black/65 dark:text-white/65 hover:bg-gray-200 dark:bg-gray-700 hover:text-black/70 dark:hover:text-white/70"
             }`}
           >
             {t.title}
@@ -323,7 +318,7 @@ function AllServicesTabs() {
           className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start"
         >
           <div>
-            <p className="text-black/65 text-sm leading-relaxed mb-6">
+            <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed mb-6">
               {tabs[active].desc}
             </p>
             <div className="space-y-3 mb-8">
@@ -334,7 +329,7 @@ function AllServicesTabs() {
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </span>
-                  <span className="text-black/65 text-sm leading-relaxed">{item}</span>
+                  <span className="text-black/65 dark:text-white/65 text-sm leading-relaxed">{item}</span>
                 </div>
               ))}
             </div>
@@ -342,10 +337,10 @@ function AllServicesTabs() {
               href="/contact"
               className="inline-block bg-brand text-white rounded-md px-6 py-2.5 font-semibold text-sm hover:bg-brand-dark transition-all duration-200"
             >
-              Talk to an Expert
+               Discuss Your Project
             </Link>
           </div>
-          <div className="aspect-[4/3] rounded-xl overflow-hidden relative bg-gray-100 border border-gray-200">
+          <div className="aspect-[4/3] rounded-xl overflow-hidden relative bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border">
             <Image src={tabs[active].img} alt="" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
           </div>
         </motion.div>

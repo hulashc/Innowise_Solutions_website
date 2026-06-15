@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 
-export default function Error({ reset }: { error: Error; reset: () => void }) {
+export default function Error({ error, reset }: { error: Error; reset: () => void }) {
+  console.error(error);
   return (
     <div className="min-h-screen flex items-center justify-center px-6">
       <div className="text-center max-w-md">
-        <p className="text-xs text-black/55 uppercase tracking-[0.2em] mb-4">Error</p>
-        <h1 className="text-4xl sm:text-5xl font-bold text-black mb-4 leading-tight">Something went wrong.</h1>
-        <p className="text-black/65 text-sm leading-relaxed mb-8">
+        <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-4">Error</p>
+        <h1 className="text-4xl sm:text-5xl font-bold text-black dark:text-white mb-4 leading-tight">Something went wrong.</h1>
+        <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed mb-8">
           An unexpected error occurred. Please try again or contact us if the problem persists.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
@@ -20,7 +21,7 @@ export default function Error({ reset }: { error: Error; reset: () => void }) {
           </button>
           <Link
             href="/contact"
-            className="inline-block border border-gray-200 text-black/65 rounded-md px-6 py-2.5 font-semibold text-sm hover:border-gray-300 transition-all duration-200"
+            className="inline-block border border-gray-200 dark:border-border text-black/65 dark:text-white/65 rounded-md px-6 py-2.5 font-semibold text-sm hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
           >
             Contact us
           </Link>

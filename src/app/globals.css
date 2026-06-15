@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --font-sans: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
   --color-surface: #f3f4f6;
+  --color-surface-hover: #e5e7eb;
   --color-surface-alt: #141414;
-  --color-border: #222222;
-  --color-brand: #059669;
-  --color-brand-light: #34d399;
-  --color-brand-dark: #047857;
+  --color-border: #e5e7eb;
+  --color-brand: #0ea5e9;
+  --color-brand-light: #38bdf8;
+  --color-brand-dark: #0284c7;
   --animate-marquee: marquee 40s linear infinite;
   --animate-marquee-reverse: marquee-reverse 40s linear infinite;
 }
@@ -22,19 +25,31 @@
   100% { transform: translateX(0); }
 }
 
+.dark {
+  --color-surface: #1a1a2e;
+  --color-surface-hover: #252540;
+  --color-border: #2a2a3e;
+}
+
+.dark body {
+  background-color: #0d0d1a;
+  color: #e5e5e5;
+}
+
+::selection {
+  background-color: #0ea5e9;
+  color: #ffffff;
+}
+
 body {
   background-color: #ffffff;
   color: #000000;
   font-family: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
   font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 *:focus-visible {
-  outline: 2px solid #059669;
+  outline: 2px solid #0ea5e9;
   outline-offset: 2px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
 }

@@ -58,28 +58,19 @@ export default function ServicesScrollytelling() {
         .to({}, { duration: 0.2 });
     });
 
-    return () => {
-      try {
-        ScrollTrigger.getAll().forEach((st) => {
-          if (st.trigger && section?.contains(st.trigger)) st.kill();
-        });
-        ctx.revert();
-      } catch {
-        // cleanup during page transitions
-      }
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
     <section ref={sectionRef}>
-      <div className="h-dvh overflow-hidden bg-white flex items-center justify-center">
+      <div className="h-dvh overflow-hidden bg-white dark:bg-surface flex items-center justify-center">
         <div className="w-full max-w-[1200px] mx-auto px-6">
           <div className="relative w-full" style={{ maxHeight: "min(65vh, 580px)", height: "65vh" }}>
             {cards.map((card, i) => (
               <div
                 key={card.title}
                 ref={(el) => { cardsRef.current[i] = el; }}
-                className="absolute inset-0 bg-white rounded-xl overflow-hidden border border-gray-200 flex flex-col md:flex-row"
+                className="absolute inset-0 bg-white dark:bg-surface rounded-xl overflow-hidden border border-gray-200 dark:border-border flex flex-col md:flex-row"
                 style={{ backfaceVisibility: "hidden" }}
               >
                 <div className="relative w-full md:w-[45%] h-[200px] md:h-auto shrink-0">
@@ -87,8 +78,8 @@ export default function ServicesScrollytelling() {
                   <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent" />
                 </div>
                 <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
-                  <p className="text-xs text-black/55 uppercase tracking-[0.2em] mb-3">{card.title}</p>
-                  <p className="text-black/65 text-sm leading-relaxed">{card.desc}</p>
+                  <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-3">{card.title}</p>
+                  <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">{card.desc}</p>
                 </div>
               </div>
             ))}

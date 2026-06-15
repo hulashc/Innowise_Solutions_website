@@ -4,9 +4,9 @@ export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center px-6">
       <div className="text-center max-w-md">
-        <p className="text-xs text-black/55 uppercase tracking-[0.2em] mb-4">404</p>
-        <h1 className="text-4xl sm:text-5xl font-bold text-black mb-4 leading-tight">Page not found.</h1>
-        <p className="text-black/65 text-sm leading-relaxed mb-8">
+        <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-4">404</p>
+        <h1 className="text-4xl sm:text-5xl font-bold text-black dark:text-white mb-4 leading-tight">Page not found.</h1>
+        <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed mb-8">
           The page you&rsquo;re looking for doesn&rsquo;t exist or has been moved.
         </p>
         <Link

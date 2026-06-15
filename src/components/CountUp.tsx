@@ -13,6 +13,8 @@ export default function CountUp({ target, suffix = "", prefix = "", decimals = 0
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
+  const targetRef = useRef(target);
+  targetRef.current = target;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,7 +28,7 @@ export default function CountUp({ target, suffix = "", prefix = "", decimals = 0
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const easeOut = 1 - Math.pow(1 - progress, 3);
-            setCount(easeOut * target);
+            setCount(easeOut * targetRef.current);
             if (progress < 1) requestAnimationFrame(animate);
           }
 
@@ -38,7 +40,7 @@ export default function CountUp({ target, suffix = "", prefix = "", decimals = 0
 
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [target]);
+  }, []);
 
   const display = decimals > 0 ? count.toFixed(decimals) : Math.round(count).toLocaleString();
 

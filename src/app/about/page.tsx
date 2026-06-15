@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import CtaBackground from "@/components/CtaBackground";
 
 export const metadata: Metadata = {
   title: "About",
@@ -12,11 +13,11 @@ export default function AboutPage() {
       {/* HERO */}
       <section className="pt-36 pb-20 md:pb-24 px-6">
         <div className="max-w-[1200px] mx-auto">
-          <p className="text-xs text-black/55 uppercase tracking-[0.2em] mb-6">About Us</p>
-          <h1 className="text-[1.5rem] sm:text-5xl lg:text-7xl font-bold text-black max-w-3xl leading-[0.9] sm:leading-[0.85] mb-4 md:mb-6">
+          <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-6">About Us</p>
+          <h1 className="text-[1.5rem] sm:text-5xl lg:text-7xl font-bold text-black dark:text-white max-w-3xl leading-[0.9] sm:leading-[0.85] mb-4 md:mb-6">
             Technology partner built for growth.
           </h1>
-          <p className="text-sm md:text-base text-black/65 max-w-xl mb-8 leading-relaxed">
+          <p className="text-sm md:text-base text-black/65 dark:text-white/65 max-w-xl mb-8 leading-relaxed">
             Founded in Leicester, we help organisations across the UK automate, secure, and scale their IT operations with AI-driven solutions.
           </p>
           <Link
@@ -29,23 +30,23 @@ export default function AboutPage() {
       </section>
 
       {/* STORY */}
-      <section className="py-16 md:py-20 px-6 border-t border-gray-200">
+      <section className="py-16 md:py-20 px-6 border-t border-gray-200 dark:border-border">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
-              <p className="text-xs text-black/55 uppercase tracking-[0.2em] mb-4">Our Story</p>
-              <h2 className="text-3xl sm:text-5xl font-bold text-black max-w-2xl mb-6 leading-tight">
+              <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-4">Our Story</p>
+              <h2 className="text-3xl sm:text-5xl font-bold text-black dark:text-white max-w-2xl mb-6 leading-tight">
                 From a simple idea to a trusted technology partner.
               </h2>
             </div>
             <div className="space-y-4">
-              <p className="text-black/65 text-sm leading-relaxed">
+              <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">
                 Innowise Solutions was founded in Leicester with a straightforward belief: technology should work for people, not the other way around. What started as a small IT consultancy has grown into a trusted partner for organisations across the UK, from local enterprises to national institutions.
               </p>
-              <p className="text-black/65 text-sm leading-relaxed">
+              <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">
                 We specialise in AI-powered cloud infrastructure, cyber security, data analytics, managed IT support, and Microsoft Dynamics ERP. Every engagement starts with understanding your business first and technology second.
               </p>
-              <p className="text-black/65 text-sm leading-relaxed">
+              <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">
                 Today we serve clients across healthcare, finance, education, local government, and the private sector. We remain independently owned and headquartered in Leicester, where we continue to invest in local talent and long-term client relationships.
               </p>
             </div>
@@ -54,10 +55,10 @@ export default function AboutPage() {
       </section>
 
       {/* VALUES */}
-      <section className="py-16 md:py-20 px-6 border-t border-gray-200">
+      <section className="py-16 md:py-20 px-6 border-t border-gray-200 dark:border-border">
         <div className="max-w-[1200px] mx-auto">
-          <p className="text-xs text-black/55 uppercase tracking-[0.2em] mb-4">Our Values</p>
-          <h2 className="text-3xl sm:text-5xl font-bold text-black max-w-3xl mb-12 md:mb-16 leading-tight">
+          <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-4">Our Values</p>
+          <h2 className="text-3xl sm:text-5xl font-bold text-black dark:text-white max-w-3xl mb-12 md:mb-16 leading-tight">
             Built on trust, delivered with integrity.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -94,10 +95,10 @@ export default function AboutPage() {
                 ),
               },
             ].map((value) => (
-              <div key={value.title} className="bg-gray-100 border border-gray-200 rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-brand/60 hover:shadow-[0_0_15px_#05966980,0_0_40px_-10px_#0596694d]">
+               <div key={value.title} className="bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-brand/60 hover:shadow-[0_0_15px_rgba(14,165,233,0.5),0_0_40px_-10px_rgba(14,165,233,0.3)]">
                 <div className="mb-4">{value.icon}</div>
-                <h3 className="text-black font-semibold text-base mb-3">{value.title}</h3>
-                <p className="text-black/65 text-sm leading-relaxed">{value.desc}</p>
+                <h3 className="text-black dark:text-white font-semibold text-base mb-3">{value.title}</h3>
+                <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">{value.desc}</p>
               </div>
             ))}
           </div>
@@ -105,39 +106,46 @@ export default function AboutPage() {
       </section>
 
       {/* TEAM */}
-      <section className="py-16 md:py-20 px-6 border-t border-gray-200">
+      <section className="py-16 md:py-20 px-6 border-t border-gray-200 dark:border-border">
         <div className="max-w-[1200px] mx-auto">
-          <p className="text-xs text-black/55 uppercase tracking-[0.2em] mb-4">Leadership</p>
-          <h2 className="text-3xl sm:text-5xl font-bold text-black max-w-2xl mb-6 leading-tight">
+          <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-4">Leadership</p>
+          <h2 className="text-3xl sm:text-5xl font-bold text-black dark:text-white max-w-2xl mb-6 leading-tight">
             Meet the team behind the technology.
           </h2>
-          <p className="text-black/65 text-sm leading-relaxed max-w-2xl mb-12">
+          <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed max-w-2xl mb-12">
             Our leadership team brings together decades of experience across cloud engineering, cyber security, and enterprise systems.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { name: "Sarah Mitchell", role: "Managing Director", bg: "from-emerald-900/40 to-teal-900/40" },
-              { name: "James Adeyemi", role: "Head of Cloud Engineering", bg: "from-blue-900/40 to-purple-900/40" },
-              { name: "Rachel Chen", role: "Head of Cyber Security", bg: "from-amber-900/40 to-red-900/40" },
-            ].map((person) => (
-              <div key={person.name} className="group relative rounded-xl overflow-hidden border border-gray-200 transition-all duration-300 hover:border-brand/60 hover:shadow-[0_0_15px_#05966980,0_0_40px_-10px_#0596694d]">
-                <div className={`aspect-[4/3] bg-gradient-to-br ${person.bg} relative`}>
-                  <div className="absolute inset-0 bg-black/20" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="text-white/90 text-xs uppercase tracking-widest">{person.name}</p>
+              { name: "Sarah Mitchell", role: "Managing Director", tint: "bg-[radial-gradient(circle_at_50%_50%,rgba(14,165,233,0.15),transparent_70%)]" },
+              { name: "James Adeyemi", role: "Head of Cloud Engineering", tint: "bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.15),transparent_70%)]" },
+              { name: "Rachel Chen", role: "Head of Cyber Security", tint: "bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.15),transparent_70%)]" },
+            ].map((person) => {
+              const initials = person.name.split(" ").map(n => n[0]).join("");
+              return (
+                 <div key={person.name} className="group relative rounded-xl overflow-hidden border border-gray-200 dark:border-border transition-all duration-300 hover:border-brand/60 hover:shadow-[0_0_15px_rgba(14,165,233,0.5),0_0_40px_-10px_rgba(14,165,233,0.3)]">
+                  <div className="aspect-[4/3] bg-gray-50 dark:bg-surface/80 relative overflow-hidden">
+                    <div className={`absolute inset-0 ${person.tint}`} />
+                    <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-6xl sm:text-7xl font-bold text-black/10 dark:text-white/10 select-none">{initials}</span>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-white/90 dark:from-[#1a1a2e]/90 via-white/50 dark:via-[#1a1a2e]/50 to-transparent">
+                      <p className="text-black/80 dark:text-white/80 text-sm font-semibold">{person.name}</p>
+                    </div>
+                  </div>
+                  <div className="p-4 md:p-5 bg-gray-100 dark:bg-surface">
+                    <p className="text-black/65 dark:text-white/65 text-sm">{person.role}</p>
                   </div>
                 </div>
-                <div className="p-4 md:p-5 bg-gray-100">
-                  <p className="text-black/65 text-sm">{person.role}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* STATS */}
-      <section className="py-16 md:py-20 px-6 border-t border-gray-200">
+      <section className="py-16 md:py-20 px-6 border-t border-gray-200 dark:border-border">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
@@ -146,9 +154,9 @@ export default function AboutPage() {
               { number: "98%", label: "Client retention" },
               { number: "24/7", label: "Security monitoring" },
             ].map((stat) => (
-              <div key={stat.label} className="bg-gray-100 border border-gray-200 rounded-xl p-6 text-center transition-all duration-300 hover:border-brand/60 hover:shadow-[0_0_15px_#05966980,0_0_40px_-10px_#0596694d]">
+               <div key={stat.label} className="bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-xl p-6 text-center transition-all duration-300 hover:border-brand/60 hover:shadow-[0_0_15px_rgba(14,165,233,0.5),0_0_40px_-10px_rgba(14,165,233,0.3)]">
                 <p className="text-4xl md:text-5xl font-bold text-brand mb-2">{stat.number}</p>
-                <p className="text-black/55 text-sm">{stat.label}</p>
+                <p className="text-black/55 dark:text-white/55 text-sm">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -159,12 +167,13 @@ export default function AboutPage() {
       <section className="py-16 md:py-20 px-6">
         <div className="max-w-[1200px] mx-auto">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden">
-            <div className="absolute inset-0 bg-black/60" />
+            <CtaBackground />
+            <div className="absolute inset-0 bg-black/40" />
             <div className="relative z-10 text-center py-12 md:py-20 px-6">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4" style={{ textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}>
                 Let&rsquo;s build something together.
               </h2>
-              <p className="text-white/70 text-sm max-w-lg mx-auto mb-8 leading-relaxed">
+              <p className="text-white/70 text-sm max-w-lg mx-auto mb-8 leading-relaxed" style={{ textShadow: "0 1px 16px rgba(0,0,0,0.4)" }}>
                 Tell us about your challenge and one of our specialists will be in touch within one business day.
               </p>
               <Link

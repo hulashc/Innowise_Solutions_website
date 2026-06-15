@@ -6,6 +6,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { useState, useEffect, useRef } from "react";
 import MarqueeLogos from "@/components/MarqueeLogos";
 import CountUp from "@/components/CountUp";
+import CtaBackground from "@/components/CtaBackground";
 
 
 export default function Home() {
@@ -20,7 +21,7 @@ export default function Home() {
   const glowShadow = useTransform(glowStrength, (s) => {
     const a = 0.06 + s * 0.54;
     const b = 0.03 + s * 0.37;
-    return `0 0 15px rgba(5,150,105,${a.toFixed(2)}), 0 0 40px -8px rgba(5,150,105,${b.toFixed(2)})`;
+    return `0 0 15px rgba(14,165,233,${a.toFixed(2)}), 0 0 40px -8px rgba(14,165,233,${b.toFixed(2)})`;
   });
 
 
@@ -87,20 +88,36 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
               className="flex flex-wrap gap-4 pb-6 md:pb-0"
             >
-                <Link
-                  href="/services"
- className="inline-block bg-white text-black rounded-md font-medium text-[clamp(0.875rem,1.3vw,1.375rem)] px-6 py-2.5 md:px-8 md:py-3 hover:bg-white/90 transition-all duration-200"
-                  >
-                    Explore Services
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="inline-block border border-white/20 text-white rounded-md text-[clamp(0.875rem,1.3vw,1.375rem)] px-6 py-2.5 md:px-8 md:py-3 hover:bg-white/5 transition-all duration-200"
-                >
-                  Talk to an Expert
-                </Link>
-              </motion.div>
+              <Link
+                href="/services"
+                className="inline-block bg-white dark:bg-surface text-black dark:text-white rounded-md font-medium text-[clamp(0.875rem,1.3vw,1.375rem)] px-6 py-2.5 md:px-8 md:py-3 hover:bg-white/90 dark:hover:bg-surface-hover transition-all duration-200"
+              >
+                Explore Services
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-block border border-white/20 text-white rounded-md text-[clamp(0.875rem,1.3vw,1.375rem)] px-6 py-2.5 md:px-8 md:py-3 hover:bg-white/5 transition-all duration-200"
+              >
+                Let&rsquo;s Talk
+              </Link>
+            </motion.div>
             </div>
+
+          {/* Scroll indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+            className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 hidden md:block"
+          >
+            <motion.div
+              animate={{ y: [0, 5, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="w-5 h-8 rounded-full border-2 border-white/30 flex items-start justify-center pt-1.5"
+            >
+              <motion.div className="w-1 h-1 rounded-full bg-white/60" />
+            </motion.div>
+          </motion.div>
           </div>
       </section>
 
@@ -113,50 +130,50 @@ export default function Home() {
         className="py-16 md:py-20 px-6"
       >
         <div className="max-w-[1200px] mx-auto">
-          <p className="text-xs text-black/55 uppercase tracking-[0.2em] mb-4">
+          <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-4">
             About Us
           </p>
-          <h2 className="text-3xl sm:text-5xl font-bold text-black max-w-2xl mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-bold text-black dark:text-white max-w-2xl mb-6 leading-tight">
             Technology that works for your business.
           </h2>
-          <p className="text-black/60 text-sm leading-relaxed max-w-3xl mb-12 md:mb-16">
+          <p className="text-black/60 dark:text-white/60 text-sm leading-relaxed max-w-3xl mb-12 md:mb-16">
             Founded in Leicester, Innowise Solutions has grown into a trusted technology partner for organisations across the UK and beyond. Our AI-driven approach helps businesses automate, optimise, and innovate across every layer of their IT stack.
           </p>
 
           <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-2">
             {/* First card */}
-            <motion.div className="bg-gray-100 border border-gray-200 rounded-xl p-4 md:p-6 min-h-0 md:min-h-[480px]" style={{ boxShadow: glowShadow }}>
+            <motion.div className="bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-xl p-4 md:p-6 min-h-0 md:min-h-[480px]" style={{ boxShadow: glowShadow }}>
               <div className="mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55 dark:text-white/55">
                   <rect x="3" y="3" width="18" height="18" rx="2" />
                   <path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
                 </svg>
               </div>
-              <h3 className="text-black font-medium text-base mb-2">AI-powered delivery</h3>
-              <p className="text-black/65 text-sm leading-relaxed">We combine AI-driven automation with deep engineering expertise to deliver faster, smarter, and with fewer surprises.</p>
+              <h3 className="text-black dark:text-white font-medium text-base mb-2">AI-powered delivery</h3>
+              <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">We combine AI-driven automation with deep engineering expertise to deliver faster, smarter, and with fewer surprises.</p>
             </motion.div>
 
             {/* Second card — chat session */}
             <ChatAnimation />
 
             {/* Third card split in half */}
-            <motion.div className="bg-gray-100 border border-gray-200 rounded-xl min-h-0 md:min-h-[480px] flex flex-col" style={{ boxShadow: glowShadow }}>
-              <div className="flex-1 p-4 md:p-6 flex flex-col justify-center border-b border-gray-200">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55 mb-4">
+            <motion.div className="bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-xl min-h-0 md:min-h-[480px] flex flex-col" style={{ boxShadow: glowShadow }}>
+              <div className="flex-1 p-4 md:p-6 flex flex-col justify-center border-b border-gray-200 dark:border-border">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55 dark:text-white/55 mb-4">
                   <circle cx="12" cy="12" r="3" />
                   <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
                 </svg>
-                <h3 className="text-black font-medium text-base mb-2">AI-ready security</h3>
-                <p className="text-black/65 text-sm leading-relaxed">Our AI-enhanced threat detection and response frameworks keep your infrastructure resilient and compliant.</p>
+                <h3 className="text-black dark:text-white font-medium text-base mb-2">AI-ready security</h3>
+                <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">Our AI-enhanced threat detection and response frameworks keep your infrastructure resilient and compliant.</p>
               </div>
               <div className="flex-1 p-4 md:p-6 flex flex-col justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55 mb-4">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55 dark:text-white/55 mb-4">
                   <path d="M12 2L2 7l10 5 10-5-10-5z" />
                   <path d="M2 17l10 5 10-5" />
                   <path d="M2 12l10 5 10-5" />
                 </svg>
-                <h3 className="text-black font-medium text-base mb-2">Continuous innovation</h3>
-                <p className="text-black/65 text-sm leading-relaxed">We stay ahead of the curve so you do too &mdash; bringing AI capabilities and emerging tech into your roadmap.</p>
+                <h3 className="text-black dark:text-white font-medium text-base mb-2">Continuous innovation</h3>
+                <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">We stay ahead of the curve so you do too &mdash; bringing AI capabilities and emerging tech into your roadmap.</p>
               </div>
             </motion.div>
           </div>
@@ -173,10 +190,10 @@ export default function Home() {
         className="py-16 md:py-20 px-6"
       >
         <div className="max-w-[1200px] mx-auto">
-          <p className="text-xs text-black/55 uppercase tracking-[0.2em] mb-4">
+          <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-4">
             Why Choose Us
           </p>
-          <h2 className="text-3xl sm:text-5xl font-bold text-black max-w-3xl mb-12 md:mb-16 leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-bold text-black dark:text-white max-w-3xl mb-12 md:mb-16 leading-tight">
             Built on trust, proven in practice.
           </h2>
 
@@ -187,12 +204,25 @@ export default function Home() {
               { target: 24, suffix: "/7", prefix: "", decimals: 0, desc: "Security monitoring and SOC coverage" },
               { target: 0, suffix: "", prefix: "", decimals: 0, desc: "Cost overruns on fixed-scope projects" },
             ].map((stat) => (
-              <div key={stat.desc} className="bg-gray-100 border border-gray-200 rounded-xl p-4 md:p-6">
-                <div className="text-5xl font-bold text-black mb-2">
+              <motion.div
+                key={stat.desc}
+                whileHover={{
+                  scale: 1.08,
+                  y: -10,
+                  boxShadow: "0 25px 50px -8px rgba(14,165,233,0.3)",
+                  borderColor: "rgba(14,165,233,0.6)",
+                  backgroundColor: "rgba(255,255,255,1)",
+                }}
+                transition={{ type: "spring", stiffness: 500, damping: 13, mass: 0.7 }}
+                className="bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-xl p-4 md:p-6 group cursor-default"
+              >
+                <div className="text-5xl font-bold text-black dark:text-white mb-2">
                   <CountUp target={stat.target} suffix={stat.suffix} prefix={stat.prefix || ""} decimals={stat.decimals || 0} />
                 </div>
-                <p className="text-black/55 text-sm leading-relaxed">{stat.desc}</p>
-              </div>
+                <p className="text-black/55 dark:text-white/55 group-hover:text-black/85 dark:group-hover:text-white/85 text-sm leading-relaxed transition-colors duration-300">
+                  {stat.desc}
+                </p>
+              </motion.div>
             ))}
           </div>
 
@@ -200,7 +230,7 @@ export default function Home() {
             href="/contact"
             className="inline-block text-brand font-semibold underline-offset-4 hover:opacity-70 transition-all duration-200"
           >
-            Talk to an Expert &rarr;
+            Start the Conversation &rarr;
           </Link>
         </div>
       </motion.section>
@@ -215,10 +245,10 @@ export default function Home() {
         className="py-16 md:py-20 px-6"
       >
         <div className="max-w-[1200px] mx-auto">
-          <p className="text-xs text-black/55 uppercase tracking-[0.2em] mb-4">
+          <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-4">
             What We Do
           </p>
-          <h2 className="text-3xl sm:text-5xl font-bold text-black max-w-2xl mb-12 md:mb-16 leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-bold text-black dark:text-white max-w-2xl mb-12 md:mb-16 leading-tight">
             AI-powered technology services that scale.
           </h2>
 
@@ -280,17 +310,9 @@ export default function Home() {
         viewport={{ once: true, margin: "-100px" }}
         className="py-16 md:py-20 px-6"
       >
-        <div         className="relative rounded-xl md:rounded-2xl overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=80"
-              alt=""
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="absolute inset-0 bg-black/60" />
+        <div className="relative rounded-xl md:rounded-2xl overflow-hidden">
+          <CtaBackground />
+          <div className="absolute inset-0 bg-black/40" />
 
           <div className="relative z-10 max-w-[1200px] mx-auto text-center py-12 md:py-20 px-6">
             <motion.h2
@@ -299,6 +321,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               viewport={{ once: true }}
               className="text-3xl md:text-5xl font-bold text-white mb-4"
+              style={{ textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}
             >
               Ready to get started?
             </motion.h2>
@@ -308,6 +331,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
               viewport={{ once: true }}
               className="text-white/70 text-sm max-w-lg mx-auto mb-8 leading-relaxed"
+              style={{ textShadow: "0 1px 16px rgba(0,0,0,0.4)" }}
             >
               Tell us about your challenge and one of our specialists will be in touch within one business day.
             </motion.p>
@@ -321,7 +345,7 @@ export default function Home() {
                 href="/contact"
                 className="inline-block bg-brand text-white rounded-full px-8 py-3 font-semibold hover:bg-brand-dark transition-all duration-200"
               >
-                Talk to an Expert
+                Get in Touch
               </Link>
             </motion.div>
           </div>
@@ -345,7 +369,7 @@ function ServiceCard({ service }: { service: { title: string; desc: string; img:
       transition={{ duration: 0.5, ease: "easeOut" }}
       viewport={{ once: true, margin: "-50px" }}
       whileHover={{ scale: 1.02 }}
-              className="group relative rounded-xl overflow-hidden border border-gray-200 hover:border-gray-300 transition-colors duration-300 cursor-pointer"
+              className="group relative rounded-xl overflow-hidden border border-gray-200 dark:border-border hover:border-gray-300 dark:hover:border-gray-600 transition-colors duration-300 cursor-pointer"
     >
       <div className="aspect-[4/3] relative overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y }}>
@@ -359,7 +383,7 @@ function ServiceCard({ service }: { service: { title: string; desc: string; img:
         </div>
       </div>
       <div className="p-4 md:p-6 bg-gray-100">
-        <p className="text-black/65 text-sm leading-relaxed group-hover:text-black/70 transition-colors duration-300">{service.desc}</p>
+        <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed group-hover:text-black/70 dark:group-hover:text-white/70 transition-colors duration-300">{service.desc}</p>
       </div>
     </motion.div>
   );
@@ -380,10 +404,9 @@ function ChatAnimation() {
 
   useEffect(() => {
     if (paused) return;
-    const totalSteps = messages.length + 1;
     const interval = setInterval(() => {
       setStep((prev) => {
-        if (prev >= totalSteps) return 0;
+        if (prev >= messages.length + 1) return 0;
         return prev + 1;
       });
     }, 1200);
@@ -391,7 +414,7 @@ function ChatAnimation() {
   }, [paused]);
 
   return (
-    <div className="relative rounded-xl min-h-[320px] md:min-h-[480px] overflow-hidden border border-gray-200">
+    <div className="relative rounded-xl min-h-[320px] md:min-h-[480px] overflow-hidden border border-gray-200 dark:border-border">
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80"
@@ -418,7 +441,7 @@ function ChatAnimation() {
                   <Image src={msg.avatar} alt="Client avatar" fill className="object-cover" />
                 </div>
               )}
-              <div className={`bg-white/95 text-black/80 text-xs rounded-2xl px-3.5 py-2.5 leading-relaxed shadow-sm ${msg.side === "left" ? "rounded-bl-sm" : "rounded-br-sm"}`}>
+              <div className={`bg-white/95 dark:bg-surface/95 text-black/80 dark:text-white/80 text-xs rounded-2xl px-3.5 py-2.5 leading-relaxed shadow-sm ${msg.side === "left" ? "rounded-bl-sm" : "rounded-br-sm"}`}>
                 {msg.text}
               </div>
               {msg.side === "right" && (
@@ -433,7 +456,7 @@ function ChatAnimation() {
       <button
         onClick={() => setPaused((p) => !p)}
         aria-label={paused ? "Resume chat animation" : "Pause chat animation"}
-        className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm text-black/60 flex items-center justify-center hover:bg-white transition-all duration-200 cursor-pointer"
+        className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/80 dark:bg-surface/80 backdrop-blur-sm text-black/60 dark:text-white/60 flex items-center justify-center hover:bg-white dark:hover:bg-surface-hover transition-all duration-200 cursor-pointer"
       >
         {paused ? (
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
