@@ -70,7 +70,7 @@ export default function ServicesScrollytelling() {
               <div
                 key={card.title}
                 ref={(el) => { cardsRef.current[i] = el; }}
-                className="absolute inset-0 bg-white dark:bg-surface rounded-xl overflow-hidden border border-gray-200 dark:border-border flex flex-col md:flex-row"
+                className="absolute inset-0 bg-brand rounded-xl overflow-hidden border border-brand/20 flex flex-col md:flex-row"
                 style={{ backfaceVisibility: "hidden" }}
               >
                 <div className="relative w-full md:w-[45%] h-[200px] md:h-auto shrink-0">
@@ -78,8 +78,8 @@ export default function ServicesScrollytelling() {
                   <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent" />
                 </div>
                 <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
-                  <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-3">{card.title}</p>
-                  <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">{card.desc}</p>
+                  <p className="text-xs text-white/55 uppercase tracking-[0.2em] mb-3">{card.title}</p>
+                  <p className="text-white/65 text-sm leading-relaxed">{card.desc}</p>
                 </div>
               </div>
             ))}

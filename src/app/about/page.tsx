@@ -95,10 +95,10 @@ export default function AboutPage() {
                 ),
               },
             ].map((value) => (
-               <div key={value.title} className="bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-brand/60 hover:shadow-[0_0_15px_rgba(14,165,233,0.5),0_0_40px_-10px_rgba(14,165,233,0.3)]">
+               <div key={value.title} className="bg-brand border border-brand/20 rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-white/40 hover:shadow-[0_0_15px_rgba(74,35,111,0.5),0_0_40px_-10px_rgba(74,35,111,0.3)]">
                 <div className="mb-4">{value.icon}</div>
-                <h3 className="text-black dark:text-white font-semibold text-base mb-3">{value.title}</h3>
-                <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">{value.desc}</p>
+                <h3 className="text-white font-semibold text-base mb-3">{value.title}</h3>
+                <p className="text-white/65 text-sm leading-relaxed">{value.desc}</p>
               </div>
             ))}
           </div>
@@ -117,25 +117,25 @@ export default function AboutPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { name: "Sarah Mitchell", role: "Managing Director", tint: "bg-[radial-gradient(circle_at_50%_50%,rgba(14,165,233,0.15),transparent_70%)]" },
+              { name: "Sarah Mitchell", role: "Managing Director", tint: "bg-[radial-gradient(circle_at_50%_50%,rgba(74,35,111,0.15),transparent_70%)]" },
               { name: "James Adeyemi", role: "Head of Cloud Engineering", tint: "bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.15),transparent_70%)]" },
               { name: "Rachel Chen", role: "Head of Cyber Security", tint: "bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.15),transparent_70%)]" },
             ].map((person) => {
               const initials = person.name.split(" ").map(n => n[0]).join("");
               return (
-                 <div key={person.name} className="group relative rounded-xl overflow-hidden border border-gray-200 dark:border-border transition-all duration-300 hover:border-brand/60 hover:shadow-[0_0_15px_rgba(14,165,233,0.5),0_0_40px_-10px_rgba(14,165,233,0.3)]">
-                  <div className="aspect-[4/3] bg-gray-50 dark:bg-surface/80 relative overflow-hidden">
+                 <div key={person.name} className="group relative rounded-xl overflow-hidden border border-brand/20 transition-all duration-300 hover:border-white/40 hover:shadow-[0_0_15px_rgba(74,35,111,0.5),0_0_40px_-10px_rgba(74,35,111,0.3)]">
+                  <div className="aspect-[4/3] bg-brand/80 relative overflow-hidden">
                     <div className={`absolute inset-0 ${person.tint}`} />
                     <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-6xl sm:text-7xl font-bold text-black/10 dark:text-white/10 select-none">{initials}</span>
+                      <span className="text-6xl sm:text-7xl font-bold text-white/10 select-none">{initials}</span>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-white/90 dark:from-[#1a1a2e]/90 via-white/50 dark:via-[#1a1a2e]/50 to-transparent">
-                      <p className="text-black/80 dark:text-white/80 text-sm font-semibold">{person.name}</p>
+                    <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-brand/90 via-brand/50 to-transparent">
+                      <p className="text-white/80 text-sm font-semibold">{person.name}</p>
                     </div>
                   </div>
-                  <div className="p-4 md:p-5 bg-gray-100 dark:bg-surface">
-                    <p className="text-black/65 dark:text-white/65 text-sm">{person.role}</p>
+                  <div className="p-4 md:p-5 bg-brand">
+                    <p className="text-white/65 text-sm">{person.role}</p>
                   </div>
                 </div>
               );
@@ -154,9 +154,9 @@ export default function AboutPage() {
               { number: "98%", label: "Client retention" },
               { number: "24/7", label: "Security monitoring" },
             ].map((stat) => (
-               <div key={stat.label} className="bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-xl p-6 text-center transition-all duration-300 hover:border-brand/60 hover:shadow-[0_0_15px_rgba(14,165,233,0.5),0_0_40px_-10px_rgba(14,165,233,0.3)]">
-                <p className="text-4xl md:text-5xl font-bold text-brand mb-2">{stat.number}</p>
-                <p className="text-black/55 dark:text-white/55 text-sm">{stat.label}</p>
+               <div key={stat.label} className="bg-brand border border-brand/20 rounded-xl p-6 text-center transition-all duration-300 hover:border-white/40 hover:shadow-[0_0_15px_rgba(74,35,111,0.5),0_0_40px_-10px_rgba(74,35,111,0.3)]">
+                <p className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.number}</p>
+                <p className="text-white/55 text-sm">{stat.label}</p>
               </div>
             ))}
           </div>

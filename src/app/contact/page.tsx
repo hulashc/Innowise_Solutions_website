@@ -32,19 +32,19 @@ export default function ContactPage() {
             {/* Form */}
             <div className="lg:col-span-3">
               {submitted ? (
-                <div className="bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-xl p-8 md:p-12 text-center">
-                  <div className="w-16 h-16 rounded-full bg-brand/10 flex items-center justify-center mx-auto mb-6">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand">
+                <div className="bg-brand border border-brand/20 rounded-xl p-8 md:p-12 text-center">
+                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
-                  <h2 className="text-2xl font-bold text-black dark:text-white mb-3">Thank you</h2>
-                  <p className="text-black/65 dark:text-white/65 text-sm max-w-md mx-auto leading-relaxed">
+                  <h2 className="text-2xl font-bold text-white mb-3">Thank you</h2>
+                  <p className="text-white/65 text-sm max-w-md mx-auto leading-relaxed">
                     Your message has been received. One of our specialists will be in touch within one business day.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-8 text-sm text-brand font-semibold hover:opacity-70 transition-all duration-200"
+                    className="mt-8 text-sm text-white/80 font-semibold hover:text-white transition-all duration-200"
                   >
                     Send another message &rarr;
                   </button>
@@ -131,30 +131,30 @@ export default function ContactPage() {
 
             {/* Info sidebar */}
             <div className="lg:col-span-2">
-              <div className="bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-xl p-6 md:p-8 space-y-8">
+              <div className="bg-brand border border-brand/20 rounded-xl p-6 md:p-8 space-y-8">
                 <div>
-                  <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-3">Address</p>
-                  <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">
+                  <p className="text-xs text-white/55 uppercase tracking-widest mb-3">Address</p>
+                  <p className="text-white/65 text-sm leading-relaxed">
                     Unit 112, The Dock<br />
                     75 Exploration Drive<br />
                     Leicester LE4 5NU
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-3">Phone</p>
-                  <a href="tel:+441162257865" className="text-brand text-sm font-semibold hover:opacity-70 transition-all duration-200">
+                  <p className="text-xs text-white/55 uppercase tracking-widest mb-3">Phone</p>
+                  <a href="tel:+441162257865" className="text-white/90 text-sm font-semibold hover:text-white transition-all duration-200">
                     +44 0116 225 7865
                   </a>
                 </div>
                 <div>
-                  <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-3">Email</p>
-                  <a href="mailto:hello@innowisesolutions.co.uk" className="text-brand text-sm font-semibold hover:opacity-70 transition-all duration-200">
+                  <p className="text-xs text-white/55 uppercase tracking-widest mb-3">Email</p>
+                  <a href="mailto:hello@innowisesolutions.co.uk" className="text-white/90 text-sm font-semibold hover:text-white transition-all duration-200">
                     hello@innowisesolutions.co.uk
                   </a>
                 </div>
                 <div>
-                  <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-3">Response Time</p>
-                  <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">
+                  <p className="text-xs text-white/55 uppercase tracking-widest mb-3">Response Time</p>
+                  <p className="text-white/65 text-sm leading-relaxed">
                     We aim to respond to all enquiries within one business day.
                   </p>
                 </div>

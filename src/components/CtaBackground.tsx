@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 
 const palette = [
-  [14, 165, 233],    // neon blue
+  [74, 35, 111],     // brand purple
   [56, 189, 248],    // sky blue
   [34, 211, 238],    // cyan
   [168, 85, 247],    // purple

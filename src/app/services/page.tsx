@@ -300,7 +300,7 @@ function AllServicesTabs() {
             className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
               i === active
                 ? "bg-brand text-white shadow-md shadow-brand/30"
-                : "bg-gray-100 dark:bg-surface text-black/65 dark:text-white/65 hover:bg-gray-200 dark:bg-gray-700 hover:text-black/70 dark:hover:text-white/70"
+                : "bg-brand/20 text-white/65 hover:bg-brand/30"
             }`}
           >
             {t.title}
@@ -340,7 +340,7 @@ function AllServicesTabs() {
                Discuss Your Project
             </Link>
           </div>
-          <div className="aspect-[4/3] rounded-xl overflow-hidden relative bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border">
+          <div className="aspect-[4/3] rounded-xl overflow-hidden relative bg-brand border border-brand/20">
             <Image src={tabs[active].img} alt="" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
           </div>
         </motion.div>

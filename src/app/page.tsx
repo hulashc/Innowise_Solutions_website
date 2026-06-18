@@ -21,7 +21,7 @@ export default function Home() {
   const glowShadow = useTransform(glowStrength, (s) => {
     const a = 0.06 + s * 0.54;
     const b = 0.03 + s * 0.37;
-    return `0 0 15px rgba(14,165,233,${a.toFixed(2)}), 0 0 40px -8px rgba(14,165,233,${b.toFixed(2)})`;
+    return `0 0 15px rgba(74,35,111,${a.toFixed(2)}), 0 0 40px -8px rgba(74,35,111,${b.toFixed(2)})`;
   });
 
 
@@ -34,7 +34,7 @@ export default function Home() {
           {/* Parallax background image */}
           <motion.div className="absolute inset-0" style={{ y: bgY }}>
             <Image
-              src="/hero_image.jpg"
+              src="/hero_bg.jpg"
               alt=""
               fill
               sizes="100vw"
@@ -90,7 +90,7 @@ export default function Home() {
             >
               <Link
                 href="/services"
-                className="inline-block bg-white dark:bg-surface text-black dark:text-white rounded-md font-medium text-[clamp(0.875rem,1.3vw,1.375rem)] px-6 py-2.5 md:px-8 md:py-3 hover:bg-white/90 dark:hover:bg-surface-hover transition-all duration-200"
+                className="inline-block bg-brand text-white rounded-md font-medium text-[clamp(0.875rem,1.3vw,1.375rem)] px-6 py-2.5 md:px-8 md:py-3 hover:bg-brand-dark transition-all duration-200"
               >
                 Explore Services
               </Link>
@@ -142,38 +142,38 @@ export default function Home() {
 
           <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-2">
             {/* First card */}
-            <motion.div className="bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-xl p-4 md:p-6 min-h-0 md:min-h-[480px]" style={{ boxShadow: glowShadow }}>
+            <motion.div className="bg-brand border border-brand/20 rounded-xl p-4 md:p-6 min-h-0 md:min-h-[480px]" style={{ boxShadow: glowShadow }}>
               <div className="mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55 dark:text-white/55">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white/55">
                   <rect x="3" y="3" width="18" height="18" rx="2" />
                   <path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
                 </svg>
               </div>
-              <h3 className="text-black dark:text-white font-medium text-base mb-2">AI-powered delivery</h3>
-              <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">We combine AI-driven automation with deep engineering expertise to deliver faster, smarter, and with fewer surprises.</p>
+              <h3 className="text-white font-medium text-base mb-2">AI-powered delivery</h3>
+              <p className="text-white/65 text-sm leading-relaxed">We combine AI-driven automation with deep engineering expertise to deliver faster, smarter, and with fewer surprises.</p>
             </motion.div>
 
             {/* Second card — chat session */}
             <ChatAnimation />
 
             {/* Third card split in half */}
-            <motion.div className="bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-xl min-h-0 md:min-h-[480px] flex flex-col" style={{ boxShadow: glowShadow }}>
-              <div className="flex-1 p-4 md:p-6 flex flex-col justify-center border-b border-gray-200 dark:border-border">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55 dark:text-white/55 mb-4">
+            <motion.div className="bg-brand border border-brand/20 rounded-xl min-h-0 md:min-h-[480px] flex flex-col" style={{ boxShadow: glowShadow }}>
+              <div className="flex-1 p-4 md:p-6 flex flex-col justify-center border-b border-white/20">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white/55 mb-4">
                   <circle cx="12" cy="12" r="3" />
                   <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
                 </svg>
-                <h3 className="text-black dark:text-white font-medium text-base mb-2">AI-ready security</h3>
-                <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">Our AI-enhanced threat detection and response frameworks keep your infrastructure resilient and compliant.</p>
+                <h3 className="text-white font-medium text-base mb-2">AI-ready security</h3>
+                <p className="text-white/65 text-sm leading-relaxed">Our AI-enhanced threat detection and response frameworks keep your infrastructure resilient and compliant.</p>
               </div>
               <div className="flex-1 p-4 md:p-6 flex flex-col justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/55 dark:text-white/55 mb-4">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white/55 mb-4">
                   <path d="M12 2L2 7l10 5 10-5-10-5z" />
                   <path d="M2 17l10 5 10-5" />
                   <path d="M2 12l10 5 10-5" />
                 </svg>
-                <h3 className="text-black dark:text-white font-medium text-base mb-2">Continuous innovation</h3>
-                <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed">We stay ahead of the curve so you do too &mdash; bringing AI capabilities and emerging tech into your roadmap.</p>
+                <h3 className="text-white font-medium text-base mb-2">Continuous innovation</h3>
+                <p className="text-white/65 text-sm leading-relaxed">We stay ahead of the curve so you do too &mdash; bringing AI capabilities and emerging tech into your roadmap.</p>
               </div>
             </motion.div>
           </div>
@@ -209,17 +209,17 @@ export default function Home() {
                 whileHover={{
                   scale: 1.08,
                   y: -10,
-                  boxShadow: "0 25px 50px -8px rgba(14,165,233,0.3)",
-                  borderColor: "rgba(14,165,233,0.6)",
+                  boxShadow: "0 25px 50px -8px rgba(74,35,111,0.3)",
+                  borderColor: "rgba(74,35,111,0.6)",
                   backgroundColor: "rgba(255,255,255,1)",
                 }}
                 transition={{ type: "spring", stiffness: 500, damping: 13, mass: 0.7 }}
-                className="bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-xl p-4 md:p-6 group cursor-default"
+                className="bg-brand border border-brand/20 rounded-xl p-4 md:p-6 group cursor-pointer"
               >
-                <div className="text-5xl font-bold text-black dark:text-white mb-2">
+                <div className="text-5xl font-bold text-white mb-2">
                   <CountUp target={stat.target} suffix={stat.suffix} prefix={stat.prefix || ""} decimals={stat.decimals || 0} />
                 </div>
-                <p className="text-black/55 dark:text-white/55 group-hover:text-black/85 dark:group-hover:text-white/85 text-sm leading-relaxed transition-colors duration-300">
+                <p className="text-white/55 group-hover:text-white/85 text-sm leading-relaxed transition-colors duration-300">
                   {stat.desc}
                 </p>
               </motion.div>
@@ -382,8 +382,8 @@ function ServiceCard({ service }: { service: { title: string; desc: string; img:
           </motion.p>
         </div>
       </div>
-      <div className="p-4 md:p-6 bg-gray-100">
-        <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed group-hover:text-black/70 dark:group-hover:text-white/70 transition-colors duration-300">{service.desc}</p>
+      <div className="p-4 md:p-6 bg-brand">
+        <p className="text-white/65 text-sm leading-relaxed group-hover:text-white/70 transition-colors duration-300">{service.desc}</p>
       </div>
     </motion.div>
   );
