@@ -1,0 +1,47 @@
+{
+  "ui-designer": {
+    "sha256": "97b22b6636b8f84d1cdee0e4594d7102239f6771d5b0e8f39074984d98a18975",
+    "installedAt": "2026-06-18T13:19:09.751Z",
+    "updatedAt": "2026-06-18T13:19:09.751Z"
+  },
+  "ux-researcher": {
+    "sha256": "82adda4346fa473819b8125375bd6c46a06b79c3acab9dec96c6cb61e3195b17",
+    "installedAt": "2026-06-18T13:19:23.236Z",
+    "updatedAt": "2026-06-18T13:19:23.236Z"
+  },
+  "typescript-pro": {
+    "sha256": "88929ddc6f6122a771901af9f1f2f0a2e57a609cfa9d73677c2d9fce19cc7600",
+    "installedAt": "2026-06-18T13:19:33.373Z",
+    "updatedAt": "2026-06-18T13:19:44.876Z"
+  },
+  "nextjs-developer": {
+    "sha256": "e0eabfe8cd402f1d9e2cd812ebeaaf386eb3e512238e2b9dfdbdac826416e1f9",
+    "installedAt": "2026-06-18T13:20:36.427Z",
+    "updatedAt": "2026-06-18T13:20:36.427Z"
+  },
+  "fullstack-developer": {
+    "sha256": "a6fb80202b91c15eb63cd1135480ad7ec85756e0da1a8236e9719ed4647245f3",
+    "installedAt": "2026-06-18T13:21:15.242Z",
+    "updatedAt": "2026-06-18T13:21:15.242Z"
+  },
+  "code-reviewer": {
+    "sha256": "6872391eabbccb26f2c3b572b8dcd742bf92df37f1434c2bf2be3e5fad549d8b",
+    "installedAt": "2026-06-18T13:21:28.120Z",
+    "updatedAt": "2026-06-18T13:21:28.120Z"
+  },
+  "performance-engineer": {
+    "sha256": "dbf200b28fff9b22b6834fb2cf5184bc3f831c50b907e8af84cd5c32cb651cfd",
+    "installedAt": "2026-06-18T13:22:03.496Z",
+    "updatedAt": "2026-06-18T13:22:03.496Z"
+  },
+  "react-specialist": {
+    "sha256": "c07fceafdd9acfeba282abae9820d77dac040b54752511dc8ff9d13d86c62557",
+    "installedAt": "2026-06-18T13:22:03.689Z",
+    "updatedAt": "2026-06-18T13:22:03.689Z"
+  },
+  "test-automator": {
+    "sha256": "6494ee8209fef17ef553d6a570ce9d7afba3af40da986f27167ae2be5fb143c3",
+    "installedAt": "2026-06-18T13:22:04.048Z",
+    "updatedAt": "2026-06-18T13:22:04.048Z"
+  }
+}

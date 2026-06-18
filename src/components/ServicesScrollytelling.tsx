@@ -1,11 +1,8 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 
 const cards = [
   {
@@ -25,63 +22,57 @@ const cards = [
   },
 ];
 
-export default function ServicesScrollytelling() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+function ScrollyCard({ card, index, total, scrollYProgress }: { card: typeof cards[0]; index: number; total: number; scrollYProgress: MotionValue<number> }) {
+  const start = index / total;
+  const end = (index + 1) / total;
 
-  useEffect(() => {
-    const section = sectionRef.current;
-    const els = cardsRef.current;
-    if (!section || !els.every(Boolean)) return;
-
-    const ctx = gsap.context(() => {
-      gsap.set(els[1], { scale: 0.95, y: 20, rotateX: 2, opacity: 0 });
-      gsap.set(els[2], { scale: 0.9, y: 40, rotateX: 4, opacity: 0 });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          pin: true,
-          start: "top top",
-          end: "+=280%",
-          scrub: 1.2,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      tl.to({}, { duration: 0.2 })
-        .to(els[0], { scale: 0.95, y: -20, rotateX: -2, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 0.2)
-        .to(els[1], { scale: 1, y: 0, rotateX: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 0.2)
-        .to({}, { duration: 0.2 })
-        .to(els[1], { scale: 0.95, y: -20, rotateX: -2, opacity: 0, duration: 0.6, ease: "power2.inOut" })
-        .to(els[2], { scale: 1, y: 0, rotateX: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.4")
-        .to({}, { duration: 0.2 });
-    });
-
-    return () => ctx.revert();
-  }, []);
+  const opacity = useTransform(
+    scrollYProgress,
+    [start, start + 0.08, end - 0.08, end],
+    [0, 1, 1, 0]
+  );
+  const scale = useTransform(
+    scrollYProgress,
+    [start, end],
+    index === 0 ? [1, 0.92] : [0.92, 1]
+  );
+  const y = useTransform(
+    scrollYProgress,
+    [start, end],
+    [0, 40]
+  );
 
   return (
-    <section ref={sectionRef}>
-      <div className="h-dvh overflow-hidden bg-white dark:bg-surface flex items-center justify-center">
+    <motion.div
+      style={{ opacity, scale, y, willChange: "transform, opacity" }}
+      className="absolute inset-0 bg-brand rounded-xl overflow-hidden border border-brand/20 flex flex-col md:flex-row"
+    >
+      <div className="relative w-full md:w-[45%] h-[200px] md:h-auto shrink-0">
+        <Image src={card.img} alt="" fill sizes="(max-width: 768px) 100vw, 45vw" className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent" />
+      </div>
+      <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
+        <p className="text-xs text-white/55 uppercase tracking-[0.2em] mb-3">{card.title}</p>
+        <p className="text-white/65 text-sm leading-relaxed">{card.desc}</p>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function ServicesScrollytelling() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
+  return (
+    <section ref={sectionRef} className="relative h-[200vh]">
+      <div className="sticky top-0 h-dvh overflow-hidden bg-white dark:bg-surface flex items-center justify-center">
         <div className="w-full max-w-[1200px] mx-auto px-6">
           <div className="relative w-full" style={{ maxHeight: "min(65vh, 580px)", height: "65vh" }}>
             {cards.map((card, i) => (
-              <div
-                key={card.title}
-                ref={(el) => { cardsRef.current[i] = el; }}
-                className="absolute inset-0 bg-brand rounded-xl overflow-hidden border border-brand/20 flex flex-col md:flex-row"
-                style={{ backfaceVisibility: "hidden" }}
-              >
-                <div className="relative w-full md:w-[45%] h-[200px] md:h-auto shrink-0">
-                  <Image src={card.img} alt="" fill sizes="(max-width: 768px) 100vw, 45vw" className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent" />
-                </div>
-                <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
-                  <p className="text-xs text-white/55 uppercase tracking-[0.2em] mb-3">{card.title}</p>
-                  <p className="text-white/65 text-sm leading-relaxed">{card.desc}</p>
-                </div>
-              </div>
+              <ScrollyCard key={card.title} card={card} index={i} total={cards.length} scrollYProgress={scrollYProgress} />
             ))}
           </div>
         </div>

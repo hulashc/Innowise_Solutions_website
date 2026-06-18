@@ -15,6 +15,15 @@
   --animate-marquee-reverse: marquee-reverse 40s linear infinite;
 }
 
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out both;
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -50,6 +59,6 @@ body {
 }
 
 *:focus-visible {
-  outline: 2px solid #4A236F;
+  outline: 2px solid var(--color-brand);
   outline-offset: 2px;
 }

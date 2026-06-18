@@ -39,13 +39,13 @@ export default function Navbar() {
       }}
       className="fixed top-0 left-0 right-0 z-50"
     >
-      <div className="w-full pl-8 pr-2 md:pr-4 h-28 flex items-center">
+      <div className="w-full pl-6 pr-2 md:pr-4 h-20 flex items-center">
         <Link
           href="/"
-          className="flex items-center gap-3 font-bold text-3xl tracking-tight"
+          className="flex items-center gap-2 font-bold text-2xl tracking-tight"
         >
-          <motion.span style={{ color: textColor }} className="flex items-center gap-3">
-            <svg width="36" height="36" viewBox="0 0 28 28" fill="none" className="shrink-0">
+          <motion.span style={{ color: textColor }} className="flex items-center gap-2">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="shrink-0">
               <rect x="2" y="2" width="24" height="24" rx="6" stroke="currentColor" strokeWidth="1.5" />
               <path d="M8 14h12M14 8v12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               <circle cx="14" cy="14" r="3" fill="currentColor" fillOpacity="0.3" />
@@ -55,13 +55,13 @@ export default function Navbar() {
         </Link>
 
         <div className="flex-1" />
-          <div className="hidden md:flex items-center gap-10 mr-4">
+          <div className="hidden md:flex items-center gap-8 mr-4">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               aria-current={pathname === link.href ? "page" : undefined}
-              className="relative text-lg font-semibold hover:text-brand transition-all duration-200 uppercase tracking-wider group"
+              className="relative text-sm font-semibold hover:text-brand transition-all duration-200 group px-2 py-1"
             >
               <motion.span style={{ color: textColor }}>{link.label}</motion.span>
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all duration-300 group-hover:w-full" />
@@ -72,7 +72,7 @@ export default function Navbar() {
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
           style={{ color: hamburgerColor }}
-          className="md:hidden transition-all duration-200 cursor-pointer p-2 hover:text-black"
+          className="md:hidden transition-all duration-200 cursor-pointer p-3 hover:text-black"
           aria-label="Toggle menu"
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -101,7 +101,7 @@ export default function Navbar() {
                   href={link.href}
                   aria-current={pathname === link.href ? "page" : undefined}
                   onClick={() => setIsOpen(false)}
-                  className="text-white/60 hover:text-white transition-all duration-200 py-2"
+                  className="text-white/60 hover:text-white transition-all duration-200 py-3"
                 >
                   {link.label}
                 </Link>

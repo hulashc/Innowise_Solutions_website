@@ -1,19 +1,65 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState } from "react";
+
+type State = {
+  success?: boolean;
+  error?: string;
+  errors?: Record<string, string>;
+};
+
+const initialState: State = {};
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const [state, formAction, pending] = useActionState(
+    async (_prev: State, formData: FormData) => {
+      const { submitEnquiry } = await import("@/app/actions/submitEnquiry");
+      return submitEnquiry(_prev, {
+        name: formData.get("name") as string,
+        email: formData.get("email") as string,
+        phone: formData.get("phone") as string,
+        company: formData.get("company") as string,
+        service: formData.get("service") as string,
+        message: formData.get("message") as string,
+        honeypot: formData.get("website") as string,
+      });
+    },
+    initialState
+  );
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+  if (state.success) {
+    return (
+      <div className="min-h-screen">
+        <section className="pt-24 md:pt-28 pb-16 md:pb-20 px-6">
+          <div className="max-w-[1200px] mx-auto">
+            <div className="lg:col-span-3">
+              <div className="bg-brand border border-brand/20 rounded-xl p-8 md:p-12 text-center">
+                <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <h2 className="text-2xl font-bold text-white mb-3">Thank you</h2>
+                <p className="text-white/65 text-sm max-w-md mx-auto leading-relaxed">
+                  Your message has been received. One of our specialists will be in touch within one business day.
+                </p>
+                <a
+                  href="/contact"
+                  className="mt-8 inline-block text-sm text-white/80 font-semibold hover:text-white transition-all duration-200"
+                >
+                  Send another message &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen">
-      {/* HERO */}
-      <section className="pt-36 pb-16 md:pb-20 px-6">
+      <section className="pt-24 md:pt-28 pb-16 md:pb-20 px-6">
         <div className="max-w-[1200px] mx-auto">
           <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-6">Contact</p>
           <h1 className="text-[1.5rem] sm:text-5xl lg:text-7xl font-bold text-black dark:text-white max-w-3xl leading-[0.9] sm:leading-[0.85] mb-4 md:mb-6">
@@ -25,111 +71,81 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FORM + INFO */}
-      <section className="pb-24 md:pb-32 px-6">
+      <section className="pb-16 md:pb-20 px-6">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-            {/* Form */}
             <div className="lg:col-span-3">
-              {submitted ? (
-                <div className="bg-brand border border-brand/20 rounded-xl p-8 md:p-12 text-center">
-                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  </div>
-                  <h2 className="text-2xl font-bold text-white mb-3">Thank you</h2>
-                  <p className="text-white/65 text-sm max-w-md mx-auto leading-relaxed">
-                    Your message has been received. One of our specialists will be in touch within one business day.
-                  </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="mt-8 text-sm text-white/80 font-semibold hover:text-white transition-all duration-200"
-                  >
-                    Send another message &rarr;
-                  </button>
+              <form action={formAction} className="space-y-6">
+                <div className="absolute -left-[9999px]" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-2">Full Name</label>
-                      <input
-                        id="name"
-                        type="text"
-                        required
-                        className="w-full bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-lg px-4 py-3 text-sm text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 outline-none focus:border-brand transition-all duration-200"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-2">Email</label>
-                      <input
-                        id="email"
-                        type="email"
-                        required
-                        className="w-full bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-lg px-4 py-3 text-sm text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 outline-none focus:border-brand transition-all duration-200"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="phone" className="block text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-2">Phone</label>
-                      <input
-                        id="phone"
-                        type="tel"
-                        className="w-full bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-lg px-4 py-3 text-sm text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 outline-none focus:border-brand transition-all duration-200"
-                        placeholder="+44"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="company" className="block text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-2">Company</label>
-                      <input
-                        id="company"
-                        type="text"
-                        className="w-full bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-lg px-4 py-3 text-sm text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 outline-none focus:border-brand transition-all duration-200"
-                        placeholder="Your company"
-                      />
-                    </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-2">Full Name *</label>
+                    <input id="name" name="name" type="text" required
+                      className="w-full bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-lg px-4 py-3 text-sm text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 outline-none focus:border-brand transition-all duration-200"
+                      placeholder="Your name" />
+                    {state.errors?.name && <p className="text-red-500 text-xs mt-1">{state.errors.name}</p>}
                   </div>
                   <div>
-                    <label htmlFor="service" className="block text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-2">Service Interested In</label>
-                    <select
-                      id="service"
-                      className="w-full bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-lg px-4 py-3 text-sm text-black/65 dark:text-white/65 outline-none focus:border-brand transition-all duration-200"
-                    >
-                      <option value="">Select a service</option>
-                      <option value="ai">AI Partnered Services</option>
-                      <option value="cloud">Cloud Services</option>
-                      <option value="data">Data & Analytics</option>
-                      <option value="managed">Managed IT Support</option>
-                      <option value="security">Cyber Security</option>
-                      <option value="erp">Microsoft Dynamics ERP</option>
-                      <option value="other">Other</option>
-                    </select>
+                    <label htmlFor="email" className="block text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-2">Email *</label>
+                    <input id="email" name="email" type="email" required
+                      className="w-full bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-lg px-4 py-3 text-sm text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 outline-none focus:border-brand transition-all duration-200"
+                      placeholder="your@email.com" />
+                    {state.errors?.email && <p className="text-red-500 text-xs mt-1">{state.errors.email}</p>}
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-2">Phone</label>
+                    <input id="phone" name="phone" type="tel"
+                      className="w-full bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-lg px-4 py-3 text-sm text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 outline-none focus:border-brand transition-all duration-200"
+                      placeholder="+44" />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-2">Message</label>
-                    <textarea
-                      id="message"
-                      rows={5}
-                      required
-                      className="w-full bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-lg px-4 py-3 text-sm text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 outline-none focus:border-brand transition-all duration-200 resize-none"
-                      placeholder="Tell us about your project, timeline, and budget..."
-                    />
+                    <label htmlFor="company" className="block text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-2">Company</label>
+                    <input id="company" name="company" type="text"
+                      className="w-full bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-lg px-4 py-3 text-sm text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 outline-none focus:border-brand transition-all duration-200"
+                      placeholder="Your company" />
                   </div>
-                  <button
-                    type="submit"
-                    className="inline-block bg-brand text-white rounded-md px-8 py-3 font-semibold text-sm hover:bg-brand-dark transition-all duration-200"
+                </div>
+                <div>
+                  <label htmlFor="service" className="block text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-2">Service Interested In</label>
+                  <select id="service" name="service"
+                    className="w-full bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-lg px-4 py-3 text-sm text-black/65 dark:text-white/65 outline-none focus:border-brand transition-all duration-200"
                   >
-                    Send message
-                  </button>
-                </form>
-              )}
+                    <option value="">Select a service</option>
+                    <option value="ai">AI Partnered Services</option>
+                    <option value="cloud">Cloud Services</option>
+                    <option value="data">Data & Analytics</option>
+                    <option value="managed">Managed IT Support</option>
+                    <option value="security">Cyber Security</option>
+                    <option value="erp">Microsoft Dynamics ERP</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-xs text-black/55 dark:text-white/55 uppercase tracking-widest mb-2">Message *</label>
+                  <textarea id="message" name="message" rows={5} required
+                    className="w-full bg-gray-100 dark:bg-surface border border-gray-200 dark:border-border rounded-lg px-4 py-3 text-sm text-black dark:text-white placeholder-black/50 dark:placeholder-white/50 outline-none focus:border-brand transition-all duration-200 resize-none"
+                    placeholder="Tell us about your project, timeline, and budget..." />
+                  {state.errors?.message && <p className="text-red-500 text-xs mt-1">{state.errors.message}</p>}
+                </div>
+                {state.error && (
+                  <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800/50 rounded-lg p-4" role="alert">
+                    <p className="text-red-600 dark:text-red-400 text-sm">{state.error}</p>
+                  </div>
+                )}
+                <button type="submit" disabled={pending}
+                  className="inline-block bg-brand text-white rounded-lg px-8 py-3 font-semibold text-sm hover:bg-brand-dark transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {pending ? "Sending..." : "Send message"}
+                </button>
+              </form>
             </div>
 
-            {/* Info sidebar */}
             <div className="lg:col-span-2">
               <div className="bg-brand border border-brand/20 rounded-xl p-6 md:p-8 space-y-8">
                 <div>

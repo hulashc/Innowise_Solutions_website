@@ -11,7 +11,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* HERO */}
-      <section className="pt-36 pb-20 md:pb-24 px-6">
+      <section className="pt-28 pb-16 md:pb-20 px-6">
         <div className="max-w-[1200px] mx-auto">
           <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-6">About Us</p>
           <h1 className="text-[1.5rem] sm:text-5xl lg:text-7xl font-bold text-black dark:text-white max-w-3xl leading-[0.9] sm:leading-[0.85] mb-4 md:mb-6">
@@ -30,7 +30,7 @@ export default function AboutPage() {
       </section>
 
       {/* STORY */}
-      <section className="py-16 md:py-20 px-6 border-t border-gray-200 dark:border-border">
+      <section className="py-12 md:py-16 px-6 border-t border-gray-200 dark:border-border">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
@@ -55,13 +55,13 @@ export default function AboutPage() {
       </section>
 
       {/* VALUES */}
-      <section className="py-16 md:py-20 px-6 border-t border-gray-200 dark:border-border">
+      <section className="py-12 md:py-16 px-6 border-t border-gray-200 dark:border-border">
         <div className="max-w-[1200px] mx-auto">
           <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-4">Our Values</p>
           <h2 className="text-3xl sm:text-5xl font-bold text-black dark:text-white max-w-3xl mb-12 md:mb-16 leading-tight">
             Built on trust, delivered with integrity.
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
               {
                 title: "Client-First Approach",
@@ -106,7 +106,7 @@ export default function AboutPage() {
       </section>
 
       {/* TEAM */}
-      <section className="py-16 md:py-20 px-6 border-t border-gray-200 dark:border-border">
+      <section className="py-12 md:py-16 px-6 border-t border-gray-200 dark:border-border">
         <div className="max-w-[1200px] mx-auto">
           <p className="text-xs text-black/55 dark:text-white/55 uppercase tracking-[0.2em] mb-4">Leadership</p>
           <h2 className="text-3xl sm:text-5xl font-bold text-black dark:text-white max-w-2xl mb-6 leading-tight">
@@ -115,7 +115,7 @@ export default function AboutPage() {
           <p className="text-black/65 dark:text-white/65 text-sm leading-relaxed max-w-2xl mb-12">
             Our leadership team brings together decades of experience across cloud engineering, cyber security, and enterprise systems.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
               { name: "Sarah Mitchell", role: "Managing Director", tint: "bg-[radial-gradient(circle_at_50%_50%,rgba(74,35,111,0.15),transparent_70%)]" },
               { name: "James Adeyemi", role: "Head of Cloud Engineering", tint: "bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.15),transparent_70%)]" },
@@ -145,7 +145,7 @@ export default function AboutPage() {
       </section>
 
       {/* STATS */}
-      <section className="py-16 md:py-20 px-6 border-t border-gray-200 dark:border-border">
+      <section className="py-12 md:py-16 px-6 border-t border-gray-200 dark:border-border">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
@@ -164,12 +164,12 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-20 px-6">
+      <section className="py-12 md:py-16 px-6">
         <div className="max-w-[1200px] mx-auto">
           <div className="relative rounded-xl md:rounded-2xl overflow-hidden">
             <CtaBackground />
             <div className="absolute inset-0 bg-black/40" />
-            <div className="relative z-10 text-center py-12 md:py-20 px-6">
+            <div className="relative z-10 text-center px-6 py-10 md:py-14">
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-4" style={{ textShadow: "0 2px 24px rgba(0,0,0,0.55)" }}>
                 Let&rsquo;s build something together.
               </h2>
@@ -178,7 +178,7 @@ export default function AboutPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-block bg-brand text-white rounded-full px-8 py-3 font-semibold hover:bg-brand-dark transition-all duration-200"
+                className="inline-block bg-brand text-white rounded-lg px-8 py-3 font-semibold hover:bg-brand-dark transition-all duration-200"
               >
                 Start a conversation
               </Link>

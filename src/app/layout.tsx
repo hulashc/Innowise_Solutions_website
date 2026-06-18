@@ -3,7 +3,6 @@ import { Raleway } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SmoothScroll from "@/components/SmoothScroll";
 import CookieConsent from "@/components/CookieConsent";
 import BackToTop from "@/components/BackToTop";
 
@@ -73,13 +72,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <SmoothScroll>
-          <Navbar />
-          <main id="main-content" className="overflow-x-hidden">{children}</main>
-          <Footer />
-          <CookieConsent />
-          <BackToTop />
-        </SmoothScroll>
+        <Navbar />
+        <main id="main-content" className="overflow-x-hidden">{children}</main>
+        <Footer />
+        <CookieConsent />
+        <BackToTop />
       </body>
     </html>
   );
